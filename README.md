@@ -1,56 +1,100 @@
-# Welcome to your Expo app 👋
+# Biblioteca Digital
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Tercer Desafío Práctico — opción **App de Biblioteca Digital / Catálogo de Libros y Préstamos**.
 
-## Get started
+Aplicación móvil hecha con Expo (React Native + TypeScript) que consume un backend simulado en MockAPI.io mediante Axios. Permite explorar el catálogo, registrar libros, cambiar su estado de préstamo y calificación, y darlos de baja.
 
-1. Install dependencies
+## Funcionalidades
+
+| Operación | Endpoint | Pantalla |
+| --- | --- | --- |
+| GET | `/books` | Catálogo (`src/app/(tabs)/index.tsx`) |
+| GET | `/books/:id` | Detalle (`src/app/detail/[id].tsx`) |
+| POST | `/books` | Agregar (`src/app/(tabs)/create.tsx`) |
+| PUT | `/books/:id` | Detalle: editar datos, estado y calificación |
+| DELETE | `/books/:id` | Detalle: eliminar con confirmación |
+
+- Buscador dinámico por título o autor, sin distinguir mayúsculas ni tildes.
+- Badges de color según disponibilidad: verde para Disponible, naranja para Prestado.
+- Calificación de 1 a 5 estrellas.
+- Estados de carga, mensajes de error de red con botón para reintentar y estados vacíos.
+- Formularios con validación por campo.
+- Pantalla de Ajustes para ver, cambiar y probar la URL base de la API.
+
+## Configurar el backend en MockAPI
+
+1. Crea un proyecto en [mockapi.io](https://mockapi.io) con el prefijo `/api/v1`.
+2. Crea el recurso `books` con este esquema y sin registros generados automáticamente:
+
+   | Campo | Tipo |
+   | --- | --- |
+   | `id` | Object ID |
+   | `createdAt` | Date |
+   | `title` | String |
+   | `author` | String |
+   | `category` | String |
+   | `year` | Number |
+   | `imageUrl` | String |
+   | `status` | String (`Disponible` o `Prestado`) |
+   | `rating` | Number (0 a 5) |
+
+3. Carga los 12 registros iniciales de `scripts/books.seed.json`:
 
    ```bash
-   npm install
+   npm run seed -- https://TU_ID.mockapi.io/api/v1
    ```
 
-2. Start the app
+4. Copia la URL del proyecto en `DEFAULT_BASE_URL`, dentro de `src/constants/config.ts`.
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Ejecutar la app
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+```bash
+npx expo start
+```
 
-### Other setup steps
+Escanea el código QR con Expo Go o presiona `a` para abrir el emulador de Android.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Estructura del proyecto
 
-## Learn more
+```
+src/
+├── app/
+│   ├── (tabs)/
+│   │   ├── _layout.tsx      Navegación por pestañas
+│   │   ├── index.tsx        Catálogo: GET con FlatList y buscador
+│   │   ├── create.tsx       Formulario de registro: POST
+│   │   └── settings.tsx     Ver, cambiar y probar la URL base
+│   ├── detail/[id].tsx      Detalle: GET, PUT y DELETE
+│   └── _layout.tsx          Stack raíz
+├── services/
+│   ├── api.ts               Instancia centralizada de Axios
+│   └── resourceService.ts   getItems, getItemById, createItem, updateItem, deleteItem
+├── components/
+│   ├── ItemCard.tsx         Tarjeta del FlatList
+│   ├── CustomInput.tsx      Entrada de texto con etiqueta y error
+│   ├── LoadingSpinner.tsx   Indicador de carga
+│   ├── BookForm.tsx         Formulario compartido por registro y edición
+│   ├── BookCover.tsx        Portada con respaldo si la imagen falla
+│   ├── StatusBadge.tsx      Badge de disponibilidad
+│   ├── StarRating.tsx       Calificación de 1 a 5 estrellas
+│   └── StateMessage.tsx     Estados vacíos y de error
+├── types/
+│   └── Entity.ts            Interfaz Book y tipos derivados
+└── constants/
+    ├── config.ts            URL base, recurso y tiempo de espera
+    └── colors.ts            Paleta de colores
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Comandos de verificación
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npx tsc --noEmit
+```
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm run lint
+```

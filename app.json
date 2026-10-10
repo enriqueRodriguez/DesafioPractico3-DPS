@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "biblioteca-digital",
+    "name": "Biblioteca Digital",
     "slug": "biblioteca-digital",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "bibliotecadigital",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "ios": {
       "icon": "./assets/expo.icon"
     },

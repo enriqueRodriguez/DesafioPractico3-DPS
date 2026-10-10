@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Cien años de soledad",
+    "author": "Gabriel García Márquez",
+    "category": "Realismo mágico",
+    "year": 1967,
+    "imageUrl": "https://covers.openlibrary.org/b/id/13009946-L.jpg",
+    "status": "Prestado",
+    "rating": 5
+  },
+  {
+    "title": "Don Quijote de la Mancha",
+    "author": "Miguel de Cervantes",
+    "category": "Novela clásica",
+    "year": 1605,
+    "imageUrl": "https://covers.openlibrary.org/b/id/13478610-L.jpg",
+    "status": "Disponible",
+    "rating": 5
+  },
+  {
+    "title": "El Principito",
+    "author": "Antoine de Saint-Exupéry",
+    "category": "Fábula",
+    "year": 1943,
+    "imageUrl": "https://covers.openlibrary.org/b/id/13499066-L.jpg",
+    "status": "Disponible",
+    "rating": 5
+  },
+  {
+    "title": "Rayuela",
+    "author": "Julio Cortázar",
+    "category": "Novela",
+    "year": 1963,
+    "imageUrl": "https://covers.openlibrary.org/b/id/1047466-L.jpg",
+    "status": "Disponible",
+    "rating": 4
+  },
+  {
+    "title": "La casa de los espíritus",
+    "author": "Isabel Allende",
+    "category": "Realismo mágico",
+    "year": 1982,
+    "imageUrl": "https://covers.openlibrary.org/b/id/15215113-L.jpg",
+    "status": "Prestado",
+    "rating": 4
+  },
+  {
+    "title": "Pedro Páramo",
+    "author": "Juan Rulfo",
+    "category": "Novela",
+    "year": 1955,
+    "imageUrl": "https://covers.openlibrary.org/b/id/14032826-L.jpg",
+    "status": "Disponible",
+    "rating": 5
+  },
+  {
+    "title": "El amor en los tiempos del cólera",
+    "author": "Gabriel García Márquez",
+    "category": "Romance",
+    "year": 1985,
+    "imageUrl": "https://covers.openlibrary.org/b/id/10096404-L.jpg",
+    "status": "Disponible",
+    "rating": 4
+  },
+  {
+    "title": "Crónica de una muerte anunciada",
+    "author": "Gabriel García Márquez",
+    "category": "Novela corta",
+    "year": 1981,
+    "imageUrl": "https://covers.openlibrary.org/b/id/8489859-L.jpg",
+    "status": "Prestado",
+    "rating": 4
+  },
+  {
+    "title": "Cuentos de barro",
+    "author": "Salarrué",
+    "category": "Cuento",
+    "year": 1933,
+    "imageUrl": "https://covers.openlibrary.org/b/id/12463630-L.jpg",
+    "status": "Disponible",
+    "rating": 5
+  },
+  {
+    "title": "Ficciones",
+    "author": "Jorge Luis Borges",
+    "category": "Cuento",
+    "year": 1944,
+    "imageUrl": "https://covers.openlibrary.org/b/id/10832290-L.jpg",
+    "status": "Disponible",
+    "rating": 5
+  },
+  {
+    "title": "La sombra del viento",
+    "author": "Carlos Ruiz Zafón",
+    "category": "Misterio",
+    "year": 2001,
+    "imageUrl": "https://covers.openlibrary.org/b/id/10107644-L.jpg",
+    "status": "Prestado",
+    "rating": 4
+  },
+  {
+    "title": "Como agua para chocolate",
+    "author": "Laura Esquivel",
+    "category": "Romance",
+    "year": 1989,
+    "imageUrl": "https://covers.openlibrary.org/b/id/8372632-L.jpg",
+    "status": "Disponible",
+    "rating": 3
+  }
+]
